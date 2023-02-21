@@ -32,7 +32,6 @@ subir.addEventListener('click', e => {
             goles,
             goleadores
         };
-        //Metemos el objeto del equipo en el array Data
         data.push(obj);
     })
 
@@ -42,14 +41,13 @@ subir.addEventListener('click', e => {
     console.log("Goles A: " + golesA + " golesB: " + golesB + "GolesTmpA: " + golesTemporalesA + "GolesTmpB: " + golesTemporalesB)
 
     console.log("Estado = " + estado)
-    //console.log(JSON.stringify(data))
     if(estado){
 
       try{
           let body = new FormData;
           body.append("json",JSON.stringify(data));
 
-          fetch("tools/cargarResultados.php",{
+          fetch("helpers/cargarResultados.php",{
               headers : new Headers(),
               method : "POST",
               body
@@ -57,7 +55,7 @@ subir.addEventListener('click', e => {
           .then(res => res.text())
           .then(res => {
               console.log(res);
-              window.location.href="./"; //TODO Probar que funcione
+              window.location.href="./fechas.php";
           })
           .catch(e => console.log("Error: " + e))
       }
