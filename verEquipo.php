@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 include("helpers/db.php");
 
 if (empty($_GET['id']) || $_GET['id'] <= 0 || $_GET['id'] > 6) {
@@ -8,25 +7,21 @@ if (empty($_GET['id']) || $_GET['id'] <= 0 || $_GET['id'] > 6) {
     die();
 }
 
-//html special chars restriction
 $idEquipo = htmlspecialchars($_GET['id']);
 
 
-//Fetch del equipo
 $sql = "SELECT * FROM equipos WHERE ID=? LIMIT 1";
 $consulta = $cn->prepare($sql);
 $consulta->bind_param('i', $idEquipo);
 $consulta->execute();
 $equipo = mysqli_fetch_assoc($consulta->get_result());
 
-//Fetch de los jugadores
 $sql = "SELECT * FROM jugadores WHERE equipo=?";
 $consulta = $cn->prepare($sql);
 $consulta->bind_param("i", $idEquipo);
 $consulta->execute();
 $jugadores = mysqli_fetch_all($consulta->get_result());
 
-//Fetch del staff
 $sql = "SELECT * FROM staff WHERE equipo=?";
 $consulta = $cn->prepare($sql);
 $consulta->bind_param("i", $idEquipo);
@@ -34,7 +29,6 @@ $consulta->execute();
 $staff = mysqli_fetch_all($consulta->get_result());
 
 
-//Puntos del equipo
 $puntosEquipo = 0;
 $puntosEquipo += intval($equipo['pg']) * 3;
 $puntosEquipo += intval($equipo['pe']);
@@ -72,7 +66,7 @@ $puntosEquipo += intval($equipo['pe']);
                     <p class="bg-white rounded text-xl text-center py-1"><?= $jugador[1] . " " . $jugador[2] ?> (<?php echo ucwords($jugador[5]) ?>)</p>
                 <?php endforeach; ?>
             </div>
-            <div class="grid grid-cols-1 gap-2 w-full mt-16"">
+            <div class="grid grid-cols-1 gap-2 w-full mt-16">
                 <h1 class=" rounded text-xl text-center py-1 text-white">Staff</h1>
                 <?php foreach ($staff as $personal) : ?>
                     <p class="bg-white rounded text-xl text-center py-1"><?= $personal[1] . " " . $personal[2] ?> (<?php echo ucwords($personal[7]) ?>)</p>

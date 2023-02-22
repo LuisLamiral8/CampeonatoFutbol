@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("db.php");
 
 $equipos = [
@@ -66,12 +65,12 @@ for($x=1;$x<61;$x++){
     $nombreJugador = $nombrePersonas[rand(0,count($nombrePersonas)-1)];
     $apellidoJugador = $apellidoPersonas[rand(0,count($apellidoPersonas)-1)];
 
-    $año = rand(1890,2000);
+    $año = rand(1995,2004);
     $mes = rand(1,12);
     $dia = rand(1,28);
     $fechaNacimiento = date("$año-$mes-$dia");
 
-    $altura = rand(150,229) / 100;
+    $altura = rand(160,195) / 100;
 
     if($x%10<2) $puesto = 1; //Arqueros
     else if($x%10<4) $puesto = 2; //Defensores
@@ -79,17 +78,13 @@ for($x=1;$x<61;$x++){
     else $puesto = 4; //Mediocampistas
 
     $peso = rand(65,95);
-    $DNI = rand(42123546,45987253);
+    $DNI = rand(35000000,45000000);
 
     $consulta->bind_param("sssdiiii",$nombreJugador,$apellidoJugador,$fechaNacimiento,$altura,$puesto,$peso,$DNI,$equipo);
     $consulta->execute();
 
     if($x%10==0 && $x>1) $equipo++;
 }
-
-
-
-//Staff
 
 $sql = "INSERT INTO staff (nombre,apellido,fechaNacimiento,altura,puesto,peso,DNI,equipo) VALUES (?,?,?,?,?,?,?,?)";
 $consulta = $cn->prepare($sql);
@@ -101,7 +96,7 @@ for($x=1;$x<19;$x++){
     $nombreStaff = $nombrePersonas[rand(0,count($nombrePersonas)-1)];
     $apellidoStaff = $apellidoPersonas[rand(0,count($apellidoPersonas)-1)];
 
-    $año = rand(1997,2003);
+    $año = rand(1995,2004);
     $mes = rand(1,12);
     $dia = rand(1,28);
     $fechaNacimiento = date("$año-$mes-$dia");

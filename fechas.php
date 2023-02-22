@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 include "helpers/db.php";
 
 $sql = "SELECT * FROM equipos";
@@ -13,7 +12,7 @@ $consulta = $cn->query($sql);
 $partidos = mysqli_fetch_all($consulta);
 
 
-if (count($partidos) > 0) $idPartido = count($partidos) + 1; 
+if (count($partidos) > 0) $idPartido = count($partidos) + 1;
 else $idPartido = 1;
 
 $sql = "SELECT * FROM equipos ORDER BY puntos DESC LIMIT 3";
@@ -22,7 +21,7 @@ $ganadores = mysqli_fetch_all($consulta);
 
 $empate = 0;
 if ($idPartido > 15) {
-  if ($ganadores[0][8] == $ganadores[1][8]) $empate = 1; 
+  if ($ganadores[0][8] == $ganadores[1][8]) $empate = 1;
 }
 
 $sql = "SELECT * FROM jugadores WHERE goles>=1 ORDER BY goles DESC LIMIT 10";
@@ -47,6 +46,8 @@ $goleadores = mysqli_fetch_all($consulta);
 </head>
 
 <body class="bg-gray-800">
+
+
 
 
   <h1 class="text-center text-8xl font-bold text-white my-3">Partido</h1>
@@ -276,6 +277,18 @@ $goleadores = mysqli_fetch_all($consulta);
     </div>
   </div>
 
+  <?php if ($empate) : ?>
+    <div class="w-full  top-16 flex flex-col justify-center items-center bg-red-500 position-fixed p-3 rounded mx-auto z-16">
+      <h3 class="text-center text-3xl font-bold">Empate</h3>
+      <div class="flex flex-row justify-center items-center gap-3">
+        <a href="verEquipo.php?id=<?= $ganadores[0][0] ?>" class="text-center text-black font-bold "><?= $ganadores[0][1] ?></a>
+        <p class="my-4">VS</p>
+        <a href="verEquipo.php?id=<?= $ganadores[1][0] ?>" class="text-center text-black font-bold "><?= $ganadores[1][1] ?></a>
+      </div>
+      <a href="jugarFecha.php?id=16&E1=<?= $ganadores[0][0] ?>&E2=<?= $ganadores[1][0] ?>" class="bg-green-500 mx-auto px-3 py-2 rounded-xl text-white">Desempatar</a>
+    </div>
+  <?php endif ?>
+
   <!-- Puntajes -->
   <div class="w-2/4 mx-auto bg-white rounded-md p-2 mt-8 grid grid-cols-3 gap-2">
     <div class="col-span-3 flex justify-center items-center mb-5 font-black underline">Puntajes</div>
@@ -308,21 +321,6 @@ $goleadores = mysqli_fetch_all($consulta);
 
     </div>
 
-
-
-    <?php if ($empate) : ?>
-      <div class="container card text-dark p-0 row d-flex text-center mx-auto div-empate col-sm-6">
-        <h3 class="mt-2 text-danger col-12">Empate</h3>
-        <div class="d-flex position-relative row mx-auto">
-          <a href="verEquipo.php?id=<?= $ganadores[0][0] ?>" class="col-12 p-0"><?= $ganadores[0][1] ?></a>
-          <p class="mx-auto mt-1 mb-1 p-0">VS</p>
-          <a href="verEquipo.php?id=<?= $ganadores[1][0] ?>" class="col-12 p-0"><?= $ganadores[1][1] ?></a>
-          <div class="d-flex mx-auto col-12 div-btn-empate">
-            <a href="jugarFecha.php?id=16&E1=<?= $ganadores[0][0] ?>&E2=<?= $ganadores[1][0] ?>" class="btn btn-primary d-flex mx-auto">Desempatar</a>
-          </div>
-        </div>
-      </div>
-    <?php endif ?>
 
 </body>
 

@@ -14,7 +14,7 @@ $actualizarJugador = $cn->prepare($sqlJugadores);
 $sqlEquipo = "UPDATE equipos SET pj=?,pg=?,pe=?,pp=?,gf=?,gc=?,puntos=? WHERE ID=?";
 $actualizarEquipo = $cn->prepare($sqlEquipo);
 
-$ganador = null; // Variable para almacenar id del ganador
+$ganador = null; 
 
 foreach($data as $i => $equipo){
 

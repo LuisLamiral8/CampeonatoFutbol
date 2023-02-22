@@ -1,22 +1,11 @@
 <?php
 
-session_start();
 include "helpers/db.php";
 
 
-//html special chars restriction
 $idPartido = htmlspecialchars($_GET['id']);
 $E1 = htmlspecialchars($_GET['E1']);
 $E2 = htmlspecialchars($_GET['E2']);
-
-if (
-    !($idPartido > 0 && $idPartido <= 16) ||
-    !($E1 > 0  && $E1 < 7) ||
-    !($E2 > 0 && $E2 < 7)
-) {
-    header('location:./');
-    die();
-}
 
 $sql = "SELECT * FROM equipos WHERE ID=? || ID=? LIMIT 2";
 $consulta = $cn->prepare($sql);
