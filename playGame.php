@@ -24,7 +24,7 @@ if ($idPartido > 15) {
   if ($ganadores[0][8] == $ganadores[1][8]) $empate = 1;
 }
 
-// $idPartido = 1;
+// $idPartido = 15;
 ?>
 
 <!DOCTYPE html>
@@ -65,29 +65,27 @@ if ($idPartido > 15) {
 
         <a href="verEquipo.php?id=<?= $equipos[0][0] ?>"><?= $equipos[0][1] ?></a>
       </div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-1 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 1 ? "team-1" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="font-black text-center">VS</div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-2 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 1 ? "team-2" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
 
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[1][0] ?>"><?= $equipos[1][1] ?></a>
       </div>
 
       <div class="grid grid-cols-5 col-span-5 gap-2 col-span-2">
-        <div class="grid grid-cols-5 gap-2 col-span-2 t1Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 1 ? "t1Container" : "" ?>">
         </div>
         <div> </div>
-        <div class="grid grid-cols-5 gap-2 col-span-2 t2Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 1 ? "t2Container" : "" ?> ">
         </div>
 
       </div>
 
-      <!-- Jugar -->
       <div class="col-span-5 flex justify-center items-center">
-        <button id="<?= $equipos[0][0] ?><?= $equipos[1][0] ?>" class="pressedPlay btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 1 ? "disabled" : "" ?>">Jugar</button>
-        <button class="pressedConfirm btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
+        <button id="<?= $equipos[0][0] ?><?= $equipos[1][0] ?>" class="<?php echo $idPartido == 1 ? "pressedPlay" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 1 ? "disabled" : "" ?>">Jugar</button>
+        <button class="<?php echo $idPartido == 1 ? "pressedConfirm" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
       </div>
-      <!-- end jugar -->
     </div>
 
 
@@ -98,24 +96,24 @@ if ($idPartido > 15) {
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[2][0] ?>"><?= $equipos[2][1] ?></a>
       </div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-1 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 2 ? "team-1" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="font-black text-center">VS</div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-2 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 2 ? "team-2" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
 
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[3][0] ?>"><?= $equipos[3][1] ?></a>
       </div>
 
       <div class="grid grid-cols-5 col-span-5 gap-2 col-span-2">
-        <div class="grid grid-cols-5 gap-2 col-span-2 t1Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 2 ? "t1Container" : "" ?>">
         </div>
         <div> </div>
-        <div class="grid grid-cols-5 gap-2 col-span-2 t2Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 2 ? "t2Container" : "" ?> ">
         </div>
       </div>
       <div class="col-span-5 flex justify-center items-center">
-        <button id="<?= $equipos[2][0] ?><?= $equipos[3][0] ?>" class="pressedPlay btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 2 ? "disabled" : "" ?>">Jugar</button>
-        <button class="pressedConfirm btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
+        <button id="<?= $equipos[2][0] ?><?= $equipos[3][0] ?>" class="<?php echo $idPartido == 2 ? "pressedPlay" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 2 ? "disabled" : "" ?>">Jugar</button>
+        <button class="<?php echo $idPartido == 2 ? "pressedConfirm" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
       </div>
     </div>
 
@@ -127,22 +125,22 @@ if ($idPartido > 15) {
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[4][0] ?>"><?= $equipos[4][1] ?></a>
       </div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-1 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 3 ? "team-1" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="font-black text-center">VS</div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-2 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 3 ? "team-2" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[5][0] ?>"><?= $equipos[5][1] ?></a>
       </div>
       <div class="grid grid-cols-5 col-span-5 gap-2 col-span-2">
-        <div class="grid grid-cols-5 gap-2 col-span-2 t1Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 3 ? "t1Container" : "" ?> ">
         </div>
         <div> </div>
-        <div class="grid grid-cols-5 gap-2 col-span-2 t2Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 3 ? "t2Container" : "" ?> ">
         </div>
       </div>
       <div class="col-span-5 flex justify-center items-center">
-        <button id="<?= $equipos[4][0] ?><?= $equipos[5][0] ?>" class="pressedPlay btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 3 ? "disabled" : "" ?>">Jugar</button>
-        <button class="pressedConfirm btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
+        <button id="<?= $equipos[4][0] ?><?= $equipos[5][0] ?>" class="<?php echo $idPartido == 3 ? "pressedPlay" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 3 ? "disabled" : "" ?>">Jugar</button>
+        <button class="<?php echo $idPartido == 3 ? "pressedConfirm" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
       </div>
     </div>
   </div>
@@ -158,22 +156,22 @@ if ($idPartido > 15) {
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[0][0] ?>"><?= $equipos[0][1] ?></a>
       </div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-1 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 4 ? "team-1" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="font-black text-center">VS</div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-2 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 4 ? "team-2" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[5][0] ?>"><?= $equipos[5][1] ?></a>
       </div>
       <div class="grid grid-cols-5 col-span-5 gap-2 col-span-2">
-        <div class="grid grid-cols-5 gap-2 col-span-2 t1Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 4 ? "t1Container" : "" ?> ">
         </div>
         <div> </div>
-        <div class="grid grid-cols-5 gap-2 col-span-2 t2Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 4 ? "t2Container" : "" ?> ">
         </div>
       </div>
       <div class="col-span-5 flex justify-center items-center">
-        <button id="<?= $equipos[0][0] ?><?= $equipos[5][0] ?>" class="pressedPlay btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 4 ? "disabled" : "" ?>">Jugar</button>
-        <button class="pressedConfirm btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
+        <button id="<?= $equipos[0][0] ?><?= $equipos[5][0] ?>" class="<?php echo $idPartido == 4 ? "pressedPlay" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 4 ? "disabled" : "" ?>">Jugar</button>
+        <button class="<?php echo $idPartido == 4 ? "pressedConfirm" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
       </div>
     </div>
 
@@ -185,22 +183,22 @@ if ($idPartido > 15) {
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[1][0] ?>"><?= $equipos[1][1] ?></a>
       </div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-1 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 5 ? "team-1" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="font-black text-center">VS</div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-2 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 5 ? "team-2" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[2][0] ?>"><?= $equipos[2][1] ?></a>
       </div>
       <div class="grid grid-cols-5 col-span-5 gap-2 col-span-2">
-        <div class="grid grid-cols-5 gap-2 col-span-2 t1Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 5 ? "t1Container" : "" ?> ">
         </div>
         <div> </div>
-        <div class="grid grid-cols-5 gap-2 col-span-2 t2Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 5 ? "t2Container" : "" ?> ">
         </div>
       </div>
       <div class="col-span-5 flex justify-center items-center">
-        <button id="<?= $equipos[1][0] ?><?= $equipos[2][0] ?>" class="pressedPlay btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 5 ? "disabled" : "" ?>">Jugar</button>
-        <button class="pressedConfirm btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
+        <button id="<?= $equipos[1][0] ?><?= $equipos[2][0] ?>" class="<?php echo $idPartido == 5 ? "pressedPlay" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 5 ? "disabled" : "" ?>">Jugar</button>
+        <button class="<?php echo $idPartido == 5 ? "pressedConfirm" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
       </div>
     </div>
 
@@ -212,22 +210,22 @@ if ($idPartido > 15) {
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[3][0] ?>"><?= $equipos[3][1] ?></a>
       </div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-1 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 6 ? "team-1" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="font-black text-center">VS</div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-2 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 6 ? "team-2" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[4][0] ?>"><?= $equipos[4][1] ?></a>
       </div>
       <div class="grid grid-cols-5 col-span-5 gap-2 col-span-2">
-        <div class="grid grid-cols-5 gap-2 col-span-2 t1Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 6 ? "t1Container" : "" ?> ">
         </div>
         <div> </div>
-        <div class="grid grid-cols-5 gap-2 col-span-2 t2Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 6 ? "t2Container" : "" ?> ">
         </div>
       </div>
       <div class="col-span-5 flex justify-center items-center">
-        <button id="<?= $equipos[3][0] ?><?= $equipos[4][0] ?>" class="pressedPlay btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 6 ? "disabled" : "" ?>">Jugar</button>
-        <button class="pressedConfirm btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
+        <button id="<?= $equipos[3][0] ?><?= $equipos[4][0] ?>" class="<?php echo $idPartido == 6 ? "pressedPlay" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 6 ? "disabled" : "" ?>">Jugar</button>
+        <button class="<?php echo $idPartido == 6 ? "pressedConfirm" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
       </div>
     </div>
   </div>
@@ -244,22 +242,22 @@ if ($idPartido > 15) {
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[0][0] ?>"><?= $equipos[0][1] ?></a>
       </div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-1 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 7 ? "team-1" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="font-black text-center">VS</div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-2 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 7 ? "team-2" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[2][0] ?>"><?= $equipos[2][1] ?></a>
       </div>
       <div class="grid grid-cols-5 col-span-5 gap-2 col-span-2">
-        <div class="grid grid-cols-5 gap-2 col-span-2 t1Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 7 ? "t1Container" : "" ?> ">
         </div>
         <div> </div>
-        <div class="grid grid-cols-5 gap-2 col-span-2 t2Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 7 ? "t2Container" : "" ?> ">
         </div>
       </div>
       <div class="col-span-5 flex justify-center items-center">
-        <button id="<?= $equipos[0][0] ?><?= $equipos[2][0] ?>" class="pressedPlay btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 7 ? "disabled" : "" ?>">Jugar</button>
-        <button class="pressedConfirm btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
+        <button id="<?= $equipos[0][0] ?><?= $equipos[2][0] ?>" class="<?php echo $idPartido == 7 ? "pressedPlay" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 7 ? "disabled" : "" ?>">Jugar</button>
+        <button class="<?php echo $idPartido == 7 ? "pressedConfirm" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
       </div>
     </div>
 
@@ -271,22 +269,22 @@ if ($idPartido > 15) {
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[1][0] ?>"><?= $equipos[1][1] ?></a>
       </div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-1 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 8 ? "team-1" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="font-black text-center">VS</div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-2 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 8 ? "team-2" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[4][0] ?>"><?= $equipos[4][1] ?></a>
       </div>
       <div class="grid grid-cols-5 col-span-5 gap-2 col-span-2">
-        <div class="grid grid-cols-5 gap-2 col-span-2 t1Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 8 ? "t1Container" : "" ?> ">
         </div>
         <div> </div>
-        <div class="grid grid-cols-5 gap-2 col-span-2 t2Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 8 ? "t2Container" : "" ?> ">
         </div>
       </div>
       <div class="col-span-5 flex justify-center items-center">
-        <button id="<?= $equipos[1][0] ?><?= $equipos[4][0] ?>" class="pressedPlay btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 8 ? "disabled" : "" ?>">Jugar</button>
-        <button class="pressedConfirm btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
+        <button id="<?= $equipos[1][0] ?><?= $equipos[4][0] ?>" class="<?php echo $idPartido == 8 ? "pressedPlay" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 8 ? "disabled" : "" ?>">Jugar</button>
+        <button class="<?php echo $idPartido == 8 ? "pressedConfirm" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
       </div>
     </div>
 
@@ -298,22 +296,22 @@ if ($idPartido > 15) {
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[3][0] ?>"><?= $equipos[3][1] ?></a>
       </div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-1 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 9 ? "team-1" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="font-black text-center">VS</div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-2 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 9 ? "team-2" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[5][0] ?>"><?= $equipos[5][1] ?></a>
       </div>
       <div class="grid grid-cols-5 col-span-5 gap-2 col-span-2">
-        <div class="grid grid-cols-5 gap-2 col-span-2 t1Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 9 ? "t1Container" : "" ?> ">
         </div>
         <div> </div>
-        <div class="grid grid-cols-5 gap-2 col-span-2 t2Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 9 ? "t2Container" : "" ?> ">
         </div>
       </div>
       <div class="col-span-5 flex justify-center items-center">
-        <button id="<?= $equipos[3][0] ?><?= $equipos[5][0] ?>" class="pressedPlay btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 9 ? "disabled" : "" ?>">Jugar</button>
-        <button class="pressedConfirm btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
+        <button id="<?= $equipos[3][0] ?><?= $equipos[5][0] ?>" class="<?php echo $idPartido == 9 ? "pressedPlay" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 9 ? "disabled" : "" ?>">Jugar</button>
+        <button class="<?php echo $idPartido == 9 ? "pressedConfirm" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
       </div>
     </div>
   </div>
@@ -330,22 +328,22 @@ if ($idPartido > 15) {
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[0][0] ?>"><?= $equipos[0][1] ?></a>
       </div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-1 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 10 ? "team-1" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="font-black text-center">VS</div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-2 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 10 ? "team-2" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[3][0] ?>"><?= $equipos[3][1] ?></a>
       </div>
       <div class="grid grid-cols-5 col-span-5 gap-2 col-span-2">
-        <div class="grid grid-cols-5 gap-2 col-span-2 t1Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 10 ? "t1Container" : "" ?> ">
         </div>
         <div> </div>
-        <div class="grid grid-cols-5 gap-2 col-span-2 t2Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 10 ? "t2Container" : "" ?> ">
         </div>
       </div>
       <div class="col-span-5 flex justify-center items-center">
-        <button id="<?= $equipos[0][0] ?><?= $equipos[3][0] ?>" class="pressedPlay btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 10 ? "disabled" : "" ?>">Jugar</button>
-        <button class="pressedConfirm btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
+        <button id="<?= $equipos[0][0] ?><?= $equipos[3][0] ?>" class="<?php echo $idPartido == 10 ? "pressedPlay" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 10 ? "disabled" : "" ?>">Jugar</button>
+        <button class="<?php echo $idPartido == 10 ? "pressedConfirm" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
       </div>
     </div>
 
@@ -357,22 +355,22 @@ if ($idPartido > 15) {
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[1][0] ?>"><?= $equipos[1][1] ?></a>
       </div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-1 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 11 ? "team-1" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="font-black text-center">VS</div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-2 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 11 ? "team-2" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[5][0] ?>"><?= $equipos[5][1] ?></a>
       </div>
       <div class="grid grid-cols-5 col-span-5 gap-2 col-span-2">
-        <div class="grid grid-cols-5 gap-2 col-span-2 t1Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 11 ? "t1Container" : "" ?> ">
         </div>
         <div> </div>
-        <div class="grid grid-cols-5 gap-2 col-span-2 t2Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 11 ? "t2Container" : "" ?> ">
         </div>
       </div>
       <div class="col-span-5 flex justify-center items-center">
-        <button id="<?= $equipos[1][0] ?><?= $equipos[5][0] ?>" class="pressedPlay btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 11 ? "disabled" : "" ?>">Jugar</button>
-        <button class="pressedConfirm btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
+        <button id="<?= $equipos[1][0] ?><?= $equipos[5][0] ?>" class="<?php echo $idPartido == 11 ? "pressedPlay" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 11 ? "disabled" : "" ?>">Jugar</button>
+        <button class="<?php echo $idPartido == 11 ? "pressedConfirm" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
       </div>
     </div>
 
@@ -384,23 +382,23 @@ if ($idPartido > 15) {
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[2][0] ?>"><?= $equipos[2][1] ?></a>
       </div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-1 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 12 ? "team-1" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="font-black text-center">VS</div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-2 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 12 ? "team-2" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[4][0] ?>"><?= $equipos[4][1] ?></a>
       </div>
 
       <div class="grid grid-cols-5 col-span-5 gap-2 col-span-2">
-        <div class="grid grid-cols-5 gap-2 col-span-2 t1Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 12 ? "t1Container" : "" ?> ">
         </div>
         <div> </div>
-        <div class="grid grid-cols-5 gap-2 col-span-2 t2Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 12 ? "t2Container" : "" ?> ">
         </div>
       </div>
       <div class="col-span-5 flex justify-center items-center">
-        <button id="<?= $equipos[2][0] ?><?= $equipos[4][0] ?>" class="pressedPlay btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 12 ? "disabled" : "" ?>">Jugar</button>
-        <button class="pressedConfirm btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
+        <button id="<?= $equipos[2][0] ?><?= $equipos[4][0] ?>" class="<?php echo $idPartido == 12 ? "pressedPlay" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 12 ? "disabled" : "" ?>">Jugar</button>
+        <button class="<?php echo $idPartido == 12 ? "pressedConfirm" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
       </div>
     </div>
   </div>
@@ -417,22 +415,22 @@ if ($idPartido > 15) {
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[1][0] ?>"><?= $equipos[1][1] ?></a>
       </div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-1 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 13 ? "team-1" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="font-black text-center">VS</div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-2 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 13 ? "team-2" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[3][0] ?>"><?= $equipos[3][1] ?></a>
       </div>
       <div class="grid grid-cols-5 col-span-5 gap-2 col-span-2">
-        <div class="grid grid-cols-5 gap-2 col-span-2 t1Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 13 ? "t1Container" : "" ?> ">
         </div>
         <div> </div>
-        <div class="grid grid-cols-5 gap-2 col-span-2 t2Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 13 ? "t2Container" : "" ?> ">
         </div>
       </div>
       <div class="col-span-5 flex justify-center items-center">
-        <button id="<?= $equipos[1][0] ?><?= $equipos[3][0] ?>" class="pressedPlay btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 13 ? "disabled" : "" ?>">Jugar</button>
-        <button class="pressedConfirm btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
+        <button id="<?= $equipos[1][0] ?><?= $equipos[3][0] ?>" class="<?php echo $idPartido == 13 ? "pressedPlay" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 13 ? "disabled" : "" ?>">Jugar</button>
+        <button class="<?php echo $idPartido == 13 ? "pressedConfirm" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
       </div>
     </div>
 
@@ -444,22 +442,22 @@ if ($idPartido > 15) {
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[0][0] ?>"><?= $equipos[0][1] ?></a>
       </div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-1 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 14 ? "team-1" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="font-black text-center">VS</div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-2 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 14 ? "team-2" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[4][0] ?>"><?= $equipos[4][1] ?></a>
       </div>
       <div class="grid grid-cols-5 col-span-5 gap-2 col-span-2">
-        <div class="grid grid-cols-5 gap-2 col-span-2 t1Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 14 ? "t1Container" : "" ?> ">
         </div>
         <div> </div>
-        <div class="grid grid-cols-5 gap-2 col-span-2 t2Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 14 ? "t2Container" : "" ?> ">
         </div>
       </div>
       <div class="col-span-5 flex justify-center items-center">
-        <button id="<?= $equipos[0][0] ?><?= $equipos[4][0] ?>" class="pressedPlay btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 14 ? "disabled" : "" ?>">Jugar</button>
-        <button class="pressedConfirm btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
+        <button id="<?= $equipos[0][0] ?><?= $equipos[4][0] ?>" class="<?php echo $idPartido == 14 ? "pressedPlay" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 14 ? "disabled" : "" ?>">Jugar</button>
+        <button class="<?php echo $idPartido == 14 ? "pressedConfirm" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
       </div>
     </div>
 
@@ -471,22 +469,22 @@ if ($idPartido > 15) {
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[2][0] ?>"><?= $equipos[2][1] ?></a>
       </div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-1 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 15 ? "team-1" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="font-black text-center">VS</div>
-      <div class="flex flex-row justify-center items-center"><input type="number" class="team-2 text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+      <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido == 15 ? "team-2" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
       <div class="bg-gray-500 text-center font-medium text-white rounded-xl">
         <a href="verEquipo.php?id=<?= $equipos[5][0] ?>"><?= $equipos[5][1] ?></a>
       </div>
       <div class="grid grid-cols-5 col-span-5 gap-2 col-span-2">
-        <div class="grid grid-cols-5 gap-2 col-span-2 t1Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 15 ? "t1Container" : "" ?> ">
         </div>
         <div> </div>
-        <div class="grid grid-cols-5 gap-2 col-span-2 t2Container ">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido == 15 ? "t2Container" : "" ?> ">
         </div>
       </div>
       <div class="col-span-5 flex justify-center items-center">
-        <button id="<?= $equipos[2][0] ?><?= $equipos[5][0] ?>" class="pressedPlay btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 15 ? "disabled" : "" ?>">Jugar</button>
-        <button class="pressedConfirm btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
+        <button id="<?= $equipos[2][0] ?><?= $equipos[5][0] ?>" class="<?php echo $idPartido == 15 ? "pressedPlay" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md  <?php echo $idPartido != 15 ? "disabled" : "" ?>">Jugar</button>
+        <button class="<?php echo $idPartido == 15 ? "pressedConfirm" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
       </div>
     </div>
   </div>
@@ -496,10 +494,21 @@ if ($idPartido > 15) {
       <h3 class="text-center text-3xl font-bold">Empate</h3>
       <div class="flex flex-row justify-center items-center gap-3">
         <a href="verEquipo.php?id=<?= $ganadores[0][0] ?>" class="text-center text-black font-bold "><?= $ganadores[0][1] ?></a>
-        <p class="my-4">VS</p>
+        <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido >= 15 ? "team-1" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+        <div class="font-black text-center">VS</div>
+        <div class="flex flex-row justify-center items-center"><input type="number" class="<?php echo $idPartido >= 15 ? "team-2" : "" ?> text-center bg-gray-200 rounded-xl w-full" placeholder="Goles..."></label></div>
+
         <a href="verEquipo.php?id=<?= $ganadores[1][0] ?>" class="text-center text-black font-bold "><?= $ganadores[1][1] ?></a>
       </div>
-      <a href="jugarFecha.php?id=16&E1=<?= $ganadores[0][0] ?>&E2=<?= $ganadores[1][0] ?>" class="bg-green-500 mx-auto px-3 py-2 rounded-xl text-white">Desempatar</a>
+      <div class="grid grid-cols-5 col-span-5 gap-2 col-span-2">
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido >= 15 ? "t1Container" : "" ?> ">
+        </div>
+        <div> </div>
+        <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido >= 15 ? "t2Container" : "" ?> ">
+        </div>
+      </div>
+      <button id="<?= $equipos[0][0] ?><?= $equipos[1][0] ?>" class="<?php echo $idPartido >= 15 ? "pressedPlay" : "" ?> btn btn-secondary bg-gray-500 px-3 my-3 font-black text-white rounded-md  <?php echo $idPartido >= 15 ? "" : "disabled" ?>">Desempatar</button>
+      <button class="<?php echo $idPartido >= 15 ? "pressedConfirm" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
     </div>
   <?php endif ?>
 

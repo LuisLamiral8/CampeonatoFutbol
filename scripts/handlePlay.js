@@ -48,7 +48,7 @@ pressedPlay.addEventListener("click", async (e) => {
     let playerSelect = document.createElement("select");
     let defOption = document.createElement("option");
     let golesSelect = document.createElement("select");
-    let maxGoles = parseInt(t1.value) + 1;
+    let maxGoles = parseInt(t2.value) + 1;
     playerSelect.classList =
       "col-span-3 bg-gray-300 text-center t2PlayerSelect";
     golesSelect.classList = "col-span-1 bg-gray-300 text-center t2GolesSelect";
