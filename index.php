@@ -15,7 +15,7 @@
 
 <body class="bg-gray-800">
   <div class="w-full mx-auto text-center mt-16">
-    <a class="text-white text-3xl font-bold underline" href="fechas.php">Ir a fechas</a>
+    <a class="text-white text-3xl font-bold underline" href="playGame.php">Ir a fechas</a>
   </div>
 </body>
 

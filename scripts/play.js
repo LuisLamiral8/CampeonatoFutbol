@@ -1,4 +1,5 @@
 let subir = document.querySelector(".play");
+
 let playerA,
   playerB,
   teams,
@@ -74,3 +75,16 @@ const uploadGame = async (body) => {
     })
     .catch((e) => console.log("Error: " + e));
 };
+
+
+
+
+
+
+
+
+
+
+
+
+//me encanta el pene
