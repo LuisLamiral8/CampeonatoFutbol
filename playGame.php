@@ -24,7 +24,6 @@ if ($idPartido > 15) {
   if ($ganadores[0][8] == $ganadores[1][8]) $empate = 1;
 }
 
-// $idPartido = 15;
 ?>
 
 <!DOCTYPE html>
@@ -507,7 +506,7 @@ if ($idPartido > 15) {
         <div class="grid grid-cols-5 gap-2 col-span-2 <?php echo $idPartido >= 15 ? "t2Container" : "" ?> ">
         </div>
       </div>
-      <button id="<?= $equipos[0][0] ?><?= $equipos[1][0] ?>" class="<?php echo $idPartido >= 15 ? "pressedPlay" : "" ?> btn btn-secondary bg-gray-500 px-3 my-3 font-black text-white rounded-md  <?php echo $idPartido >= 15 ? "" : "disabled" ?>">Desempatar</button>
+      <button id="<?= $ganadores[0][0] ?><?= $ganadores[1][0] ?>" class="<?php echo $idPartido >= 15 ? "pressedPlay" : "" ?> btn btn-secondary bg-gray-500 px-3 my-3 font-black text-white rounded-md  <?php echo $idPartido >= 15 ? "" : "disabled" ?>">Desempatar</button>
       <button class="<?php echo $idPartido >= 15 ? "pressedConfirm" : "" ?> btn btn-secondary bg-gray-500 px-3 font-black text-white rounded-md hidden">Confirmar</button>
     </div>
   <?php endif ?>
